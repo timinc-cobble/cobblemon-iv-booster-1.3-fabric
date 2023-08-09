@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblemon_ivbooster",
+  "version": "1.0.0",
+  "name": "Cobblemon IV Booster",
+  "description": "Guarantee a certain number of perfect IVs on wild spawns conditionally",
+  "authors": [
+    "TimInc aka Timothy Metcalfe"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "us.timinc.mc.cobblemon.ivbooster.IvBooster"
+      }
+    ]
+  },
+  "mixins": [
+    "ivbooster.mixins.json"
+  ],
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=1.19.2",
+    "fabricloader": ">=0.13.3",
+    "fabric-language-kotlin": ">=1.9.3+kotlin.1.8.20",
+    "fabric": "*",
+    "architectury": ">=6.0.37",
+    "cobblemon": ">=1.2.0"
+  }
+}
