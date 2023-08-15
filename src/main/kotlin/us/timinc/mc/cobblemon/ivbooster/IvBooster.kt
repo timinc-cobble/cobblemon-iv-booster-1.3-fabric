@@ -3,8 +3,7 @@ package us.timinc.mc.cobblemon.ivbooster
 import com.cobblemon.mod.common.api.spawning.context.SpawningContext
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity
 import com.cobblemon.mod.common.pokemon.IVs
-import me.shedaniel.autoconfig.AutoConfig
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer
+import draylar.omegaconfig.OmegaConfig
 import net.fabricmc.api.ModInitializer
 import net.minecraft.world.entity.ai.targeting.TargetingConditions
 import net.minecraft.world.entity.player.Player
@@ -16,15 +15,9 @@ import us.timinc.mc.cobblemon.ivbooster.config.IvBoosterConfig
 
 object IvBooster : ModInitializer {
     const val MOD_ID = "ivbooster"
-    private lateinit var ivBoosterConfig: IvBoosterConfig
+    private var ivBoosterConfig: IvBoosterConfig = OmegaConfig.register(IvBoosterConfig::class.java)
 
-    override fun onInitialize() {
-        AutoConfig.register(IvBoosterConfig::class.java) { definition, configClass ->
-            JanksonConfigSerializer(definition, configClass)
-        }
-
-        ivBoosterConfig = AutoConfig.getConfigHolder(IvBoosterConfig::class.java).config
-    }
+    override fun onInitialize() {}
 
     @Suppress("KotlinConstantConditions")
     private fun getPoints(player: Player, species: String): Int {
